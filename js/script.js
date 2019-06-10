@@ -73,7 +73,8 @@ function generateTitleLinks() {
 
 
     /* create HTML of the link */
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    const linkHTML = `<li><a href="#${articleId}"><span>${articleTitle}</span></a></li>`;
+    //string with one line
 
     /* insert link into titleList */
     html = html + linkHTML;
