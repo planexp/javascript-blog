@@ -35,11 +35,9 @@ function titleClickHandler(event) {
   }
 
   /* [DONE] add class 'active' to the clicked link */
-
   console.log('clickedElement:', clickedElement);
 
   clickedElement.classList.add('active');
-
 
   /* [DONE] remove class 'active' from all articles */
 
@@ -63,7 +61,6 @@ function titleClickHandler(event) {
 
   targetArticle.classList.add('active');
 }
-
 
 function generateTitleLinks(customSelector = '') {
   console.log('Title links have been generated');
