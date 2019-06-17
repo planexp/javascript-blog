@@ -1,3 +1,4 @@
+/* global Handlebars */
 'use strict';
 
 const templates = {
@@ -6,7 +7,7 @@ const templates = {
   authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
   tagCloudLink: Handlebars.compile(document.querySelector('#template-tagcloud-link').innerHTML),
   authorListLink: Handlebars.compile(document.querySelector('#template-authorlist-link').innerHTML)
-}
+};
 
 const optArticleSelector = '.post';
 const optTitleSelector = '.post-title';
@@ -14,7 +15,7 @@ const optTitleListSelector = '.titles';
 const optArticleTagsSelector = '.post-tags .list';
 const optCloudClassCount = 5;
 const optCloudClassPrefix = 'tag-size-';
-const optTagsListSelector = '.tags.list';
+// const optTagsListSelector = '.tags.list';
 const optArticleAuthorSelector = '.post-author';
 const optAuthorsListSelector = '.authors.list';
 
@@ -128,7 +129,7 @@ function calculateTagsParams(tags) {
   const params = {
     max: 0,
     min: 999999
-  }
+  };
 
   for (let tag in tags) {
     console.log(tag + ' is used ' + tags[tag] + ' times');
@@ -151,7 +152,7 @@ function calculateTagClass(count, params) {
   const percentage = normalizedCount / normalizedMax;
   const classNumber = Math.floor(percentage * (optCloudClassCount - 1) + 1);
 
-  return optCloudClassPrefix + classNumber
+  return optCloudClassPrefix + classNumber;
 }
 
 
@@ -195,7 +196,7 @@ function generateTags() {
 
 
       /* add generated code to html variable */
-      html = html + linkHTML
+      html = html + linkHTML;
 
       /* [NEW] check if this link is NOT already in allTags */
       if (!allTags.hasOwnProperty(tag)) {
@@ -210,7 +211,7 @@ function generateTags() {
 
     /* insert HTML of all the links into the tags wrapper */
 
-    tagsWrapper.innerHTML = html
+    tagsWrapper.innerHTML = html;
 
     /* END LOOP: for every article: */
   }
@@ -332,7 +333,7 @@ function generateAuthors() {
     /* find the author*/
     const author = article.getAttribute('data-author');
 
-    let authorLink = '<a href="#author-' + author + '">' + author + '</a>'
+    // let authorLink = '<a href="#author-' + author + '">' + author + '</a>'
 
     const linkHTMLData = {
       id: author
@@ -340,7 +341,7 @@ function generateAuthors() {
     const linkHTML = templates.authorLink(linkHTMLData);
 
     /* add generated code to html variable */
-    html = html + linkHTML
+    html = html + linkHTML;
 
     /* [NEW] check if this link is NOT already in allAuthors */
     if (!allAuthors.hasOwnProperty(author)) {
